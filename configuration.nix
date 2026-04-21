@@ -12,10 +12,15 @@
 
   nixpkgs.hostPlatform = system;
 
+  # Boot
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
 
+  # Network
   networking.hostName = "nixer";
+
+  networking.useDHCP = false;
+  networking.useNetworkd = true;
 
   systemd.network.enable = true;
   systemd.network.networks."30-wan" = {
