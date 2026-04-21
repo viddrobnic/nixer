@@ -1,32 +1,33 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, lib, pkgs, ... }:
+{
+  system,
+  pkgs,
+  pkgsUnstable,
+  ...
+}:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  nixpkgs.hostPlatform = system;
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = "nixer";
 
-systemd.network.enable = true;
-systemd.network.networks."30-wan" = {
-  matchConfig.Name = "enp1s0"; 
-  networkConfig.DHCP = "ipv4";
-  address = [
-    "2a01:4f8:c013:6a1b::/64"
-  ];
-  routes = [
-    { Gateway = "fe80::1"; }
-  ];
-};
-
+  systemd.network.enable = true;
+  systemd.network.networks."30-wan" = {
+    matchConfig.Name = "enp1s0";
+    networkConfig.DHCP = "ipv4";
+    address = [
+      "2a01:4f8:c013:6a1b::/64"
+    ];
+    routes = [
+      { Gateway = "fe80::1"; }
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Ljubljana";
@@ -42,7 +43,7 @@ systemd.network.networks."30-wan" = {
   environment.enableAllTerminfo = true;
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;  
+  # services.xserver.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -80,12 +81,12 @@ systemd.network.networks."30-wan" = {
   #   wget
   # ];
 
-environment.systemPackages = with pkgs; [
-neovim
-btop
-git
-jujutsu
-];
+  environment.systemPackages = with pkgs; [
+    neovim
+    btop
+    git
+    jujutsu
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -111,20 +112,20 @@ jujutsu
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
 
-networking.firewall.allowedTCPPorts = [22];
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
-   services.openssh = {
-enable = true;
-settings = {
+  services.openssh = {
+    enable = true;
+    settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "prohibit-password";
-};
-};
+    };
+  };
 
   users.users.root.openssh.authorizedKeys.keys = [
-"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM80IVSXz5v49Fh/tghJ0Qho5w22IQ1QNXF/XPkhDsuE"
-];
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM80IVSXz5v49Fh/tghJ0Qho5w22IQ1QNXF/XPkhDsuE"
+  ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -145,4 +146,3 @@ settings = {
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.11"; # Did you read the comment?
 }
-
