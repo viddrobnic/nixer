@@ -11,3 +11,9 @@ which has all the SSH keys set up, and using the remote builder functionality. E
 ```sh
 nixos-rebuild switch --flake '.#nixer' --build-host root@116.202.25.234 --target-host root@116.202.25.234
 ```
+
+Or, if you are on linux, you can just deploy it somewhere:
+
+```sh
+nixos-rebuild switch --flake '.#nixer' --target-host root@116.202.25.234
+```
