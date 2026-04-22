@@ -65,6 +65,12 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM80IVSXz5v49Fh/tghJ0Qho5w22IQ1QNXF/XPkhDsuE"
   ];
 
+  # Nix config
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # NOTE: Don't change
   system.stateVersion = "25.11";
 }
