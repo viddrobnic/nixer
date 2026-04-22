@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./services
   ];
 
   nixpkgs.hostPlatform = system;
@@ -34,7 +35,11 @@
     ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [
+    22
+    80
+    443
+  ];
 
   # Time zone, internationalization
   time.timeZone = "Europe/Ljubljana";
