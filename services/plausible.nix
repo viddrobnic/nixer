@@ -4,13 +4,13 @@
     enable = true;
 
     server = {
-      baseUrl = "https://a.nix.viddrobnic.com";
+      baseUrl = "https://a.viddrobnic.com";
       port = 8001;
       secretKeybaseFile = "/run/secrets/plausible-secret-key-base";
     };
   };
 
-  services.caddy.virtualHosts."a.nix.viddrobnic.com" = {
+  services.caddy.virtualHosts."a.viddrobnic.com" = {
     extraConfig = ''
       encode zstd gzip
       reverse_proxy * :8001

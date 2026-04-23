@@ -1,7 +1,7 @@
 { website, ... }:
 {
-  services.caddy.virtualHosts."nix.viddrobnic.com" = {
-    serverAliases = [ "www.nix.viddrobnic.com" ];
+  services.caddy.virtualHosts."viddrobnic.com" = {
+    serverAliases = [ "www.viddrobnic.com" ];
     extraConfig = ''
       encode zstd gzip
 

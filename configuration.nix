@@ -37,6 +37,7 @@
 
   networking.firewall.allowedTCPPorts = [
     22
+    2222
     80
     443
   ];
@@ -59,6 +60,7 @@
   # SSH Server
   services.openssh = {
     enable = true;
+    ports = [ 2222 ];
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;

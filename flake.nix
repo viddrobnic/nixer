@@ -3,13 +3,21 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    website.url = "git+ssh://git@github.com/viddrobnic/website.git?ref=master";
+    website = {
+      url = "git+ssh://git@github.com/viddrobnic/website.git?ref=master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    website-ssh = {
+      url = "github:viddrobnic/website-ssh";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
   outputs =
     {
       nixpkgs,
       nixpkgs-unstable,
       website,
+      website-ssh,
       ...
     }:
     let
@@ -26,7 +34,10 @@
           website = website.packages.${system}.default;
         };
 
-        modules = [ ./configuration.nix ];
+        modules = [
+          website-ssh.nixosModules.default
+          ./configuration.nix
+        ];
       };
     };
 }
