@@ -140,11 +140,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1776973255,
-        "narHash": "sha256-p0qAGcMZJZmdbTf9vlcMcsxaWnp3Wqb3lf+Yr38FfgQ=",
+        "lastModified": 1776983743,
+        "narHash": "sha256-RuFCYmFDXFAslvS8i8Q2eOhNxYi/sVF6uSdIWUMxhX8=",
         "owner": "viddrobnic",
         "repo": "website-ssh",
-        "rev": "aa108a471dc11ff81a85775686a5fa9c474fac15",
+        "rev": "3fe184ee597df1a65c4d28cf0070633597f3a7cb",
         "type": "github"
       },
       "original": {
