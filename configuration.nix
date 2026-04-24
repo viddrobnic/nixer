@@ -72,6 +72,18 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM80IVSXz5v49Fh/tghJ0Qho5w22IQ1QNXF/XPkhDsuE"
   ];
 
+  # Virtualisation
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
+    oci-containers.backend = "podman";
+  };
+
   # Nix config
   nix.settings.experimental-features = [
     "nix-command"
