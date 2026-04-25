@@ -97,6 +97,11 @@
     "flakes"
   ];
 
+  nix.settings.trusted-users = [
+    "root"
+    "vidd"
+  ];
+
   # NOTE: Don't change
   system.stateVersion = "25.11";
 }

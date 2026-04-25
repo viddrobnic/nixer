@@ -116,11 +116,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777014309,
-        "narHash": "sha256-5YyOTLgvC3gIq1L9Xi7C8a9uzfrpVV0jE+3CCyOooWI=",
+        "lastModified": 1777152374,
+        "narHash": "sha256-W/6f6hKvNWWql+XbrNMoc3PcnfxQMgy4UCBWPTIPet4=",
         "ref": "master",
-        "rev": "1f783623afbc0c28fd3320ce39929cfce366db99",
-        "revCount": 131,
+        "rev": "b5397859f92fecf90821dea1680f14acd8c131c9",
+        "revCount": 132,
         "type": "git",
         "url": "ssh://git@github.com/viddrobnic/website.git"
       },
