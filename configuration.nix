@@ -64,13 +64,20 @@
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
-      PermitRootLogin = "prohibit-password";
+      PermitRootLogin = "no";
     };
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM80IVSXz5v49Fh/tghJ0Qho5w22IQ1QNXF/XPkhDsuE"
-  ];
+  # Access
+  users.users.vidd = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG3JJSmRVfyqTvgitvB3yqnf9lf1oQP6N9OBmiJK5HCQ"
+    ];
+  };
+
+  security.sudo.wheelNeedsPassword = true;
 
   # Virtualisation
   virtualisation = {
