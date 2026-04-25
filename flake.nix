@@ -22,6 +22,8 @@
     }:
     let
       system = "x86_64-linux";
+
+      forAllSystems = nixpkgs-unstable.lib.genAttrs nixpkgs-unstable.lib.systems.flakeExposed;
     in
     {
       nixosConfigurations.nixer = nixpkgs.lib.nixosSystem {
@@ -39,5 +41,7 @@
           ./configuration.nix
         ];
       };
+
+      formatter = forAllSystems (system: nixpkgs-unstable.legacyPackages.${system}.nixfmt-tree);
     };
 }
