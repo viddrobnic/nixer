@@ -3,6 +3,7 @@
   imports = [
     ./website.nix
     ./plausible.nix
+    ./rayman.nix
   ];
 
   services.caddy.enable = true;

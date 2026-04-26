@@ -3,11 +3,8 @@
   services.caddy.virtualHosts."viddrobnic.com" = {
     serverAliases = [ "www.viddrobnic.com" ];
 
-    # NOTE: Currently we disable last-modified and etags. This is because
-    # Nix store doesn't have last modified date (it's 1. 1. 1970), but caddy
-    # relies on the dates (apparently) to generate both of those headers.
-    # Sometime in the future I'll generate .etag files during build of the website
-    # and plug those in here.
+    # We remove some caching headers, because nix removes created/modified dates, so we can't rely on those
+    # for caching.
     extraConfig = ''
       encode zstd gzip
 

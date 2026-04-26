@@ -11,6 +11,10 @@
       url = "github:viddrobnic/website-ssh";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    rayman = {
+      url = "github:viddrobnic/rayman";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
   outputs =
     {
@@ -18,6 +22,7 @@
       nixpkgs-unstable,
       website,
       website-ssh,
+      rayman,
       ...
     }:
     let
@@ -34,6 +39,7 @@
           };
 
           website = website.packages.${system}.default;
+          rayman = rayman.packages.${system}.default;
         };
 
         modules = [
