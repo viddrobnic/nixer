@@ -5,6 +5,7 @@
     ./plausible.nix
     ./rayman.nix
     ./sparovec.nix
+    ./forgejo.nix
   ];
 
   services.caddy.enable = true;

@@ -28,3 +28,12 @@ Some things still have to be done manually instead of declarative. most of the t
   ```text
   SECRET_KEY_BASE=<random_string>
   ```
+- set `sparovec` secrets by adding `/var/lib/sparovec/conv.env`:
+  ```text
+  DB_FILE_NAME="file:///var/lib/sparovec/prod.db"
+  SESSION_SECRET="<random_string>"
+  OPENAI_API_KEY="openai api key"
+  ```
+  You might also need to create admin user manually, except if you are migrating old db.
+- for `forgejo` registration has to be enabled so that admin user can be created. After that, registration
+  should be disabled!
