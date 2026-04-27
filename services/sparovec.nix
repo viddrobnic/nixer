@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  stateDir = "/var/lib/sparovec";
   port = 8002;
 in
 {
@@ -7,6 +8,7 @@ in
 
   users.users.sparovec = {
     isNormalUser = true;
+    home = stateDir;
     group = "sparovec";
 
     packages = [ pkgs.sqlite ];
@@ -21,8 +23,8 @@ in
       Type = "oneshot";
       User = "sparovec";
       Group = "sparovec";
-      WorkingDirectory = "/home/sparovec";
-      EnvironmentFile = "/home/sparovec/conf.env";
+      WorkingDirectory = stateDir;
+      EnvironmentFile = "${stateDir}/conf.env";
 
       ExecStart = "${pkgs.sparovec}/bin/sparovec-migrate";
 
@@ -47,8 +49,8 @@ in
     serviceConfig = {
       User = "sparovec";
       Group = "sparovec";
-      WorkingDirectory = "/home/sparovec";
-      EnvironmentFile = "/home/sparovec/conf.env";
+      WorkingDirectory = stateDir;
+      EnvironmentFile = "${stateDir}/conf.env";
 
       ExecStart = "${pkgs.sparovec}/bin/sparovec";
 
