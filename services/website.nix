@@ -1,4 +1,4 @@
-{ website, ... }:
+{ pkgs, ... }:
 {
   services.caddy.virtualHosts."viddrobnic.com" = {
     serverAliases = [ "www.viddrobnic.com" ];
@@ -15,7 +15,7 @@
       } 
 
       handle {
-        root * ${website}
+        root * ${pkgs.website}
 
         @astro path /_astro/*
         @notAstro not path /_astro/*

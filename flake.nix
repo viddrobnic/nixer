@@ -15,6 +15,10 @@
       url = "github:viddrobnic/rayman";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    sparovec = {
+      url = "git+ssh://git@github.com/viddrobnic/sparovec-remix.git?ref=master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -23,6 +27,7 @@
       website,
       website-ssh,
       rayman,
+      sparovec,
       ...
     }:
     let
@@ -37,13 +42,25 @@
           pkgsUnstable = import nixpkgs-unstable {
             inherit system;
           };
-
-          website = website.packages.${system}.default;
-          rayman = rayman.packages.${system}.default;
         };
 
         modules = [
+          (
+            { ... }:
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+
+                  website = website.packages.${system}.default;
+                  rayman = rayman.packages.${system}.default;
+                  sparovec = sparovec.packages.${system}.default;
+                })
+              ];
+            }
+          )
+
           website-ssh.nixosModules.default
+
           ./configuration.nix
         ];
       };

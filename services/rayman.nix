@@ -1,4 +1,4 @@
-{ rayman, ... }:
+{ pkgs, ... }:
 {
   # We remove some caching headers, because nix removes created/modified dates, so we can't rely on those
   # for caching.
@@ -12,7 +12,7 @@
     request_header -If-Modified-Since
     request_header -If-None-Match
 
-    root * ${rayman}
+    root * ${pkgs.rayman}
     file_server
   '';
 }
