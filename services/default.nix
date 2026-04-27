@@ -4,6 +4,7 @@
     ./website.nix
     ./plausible.nix
     ./rayman.nix
+    ./sparovec.nix
   ];
 
   services.caddy.enable = true;
