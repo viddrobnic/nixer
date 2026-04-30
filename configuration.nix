@@ -14,6 +14,8 @@
   nixpkgs.hostPlatform = system;
 
   # Boot
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
 

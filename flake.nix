@@ -19,6 +19,10 @@
       url = "git+ssh://git@github.com/viddrobnic/sparovec-remix.git?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lshop = {
+      url = "github:viddrobnic/lshop";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
   outputs =
     {
@@ -28,6 +32,7 @@
       website-ssh,
       rayman,
       sparovec,
+      lshop,
       ...
     }:
     let
@@ -54,6 +59,8 @@
                   website = website.packages.${system}.default;
                   rayman = rayman.packages.${system}.default;
                   sparovec = sparovec.packages.${system}.default;
+                  lshop.backend = lshop.packages.${system}.backend;
+                  lshop.frontend = lshop.packages.${system}.frontend;
                 })
               ];
             }

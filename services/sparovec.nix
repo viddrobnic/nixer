@@ -62,7 +62,7 @@ in
     };
 
     environment = {
-      PORT = "${builtins.toString port}";
+      PORT = builtins.toString port;
     };
   };
 
