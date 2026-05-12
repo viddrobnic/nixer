@@ -7,6 +7,7 @@
     ./sparovec.nix
     ./forgejo.nix
     ./lshop.nix
+    ./betterapi.nix
   ];
 
   services.caddy.enable = true;

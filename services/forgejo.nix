@@ -20,6 +20,7 @@ in
         HTTP_PORT = port;
         ROOT_URL = "https://${domain}";
         SSH_PORT = lib.head config.services.openssh.ports;
+        LANDING_PAGE = "/viddrobnic";
       };
 
       session.COOKIE_SECURE = true;
