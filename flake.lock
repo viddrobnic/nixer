@@ -127,16 +127,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1779467186,
-        "narHash": "sha256-nOesoDCiXcUftqbRBMz9tt4blI5PvljMWbm3kuCA+0s=",
+        "lastModified": 1780051219,
+        "narHash": "sha256-WnxzG4x47uCgjz+uD+vOzbF+Qid+hKyYdJWbduA9w7g=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b77b3de8775677f84492abe84635f87b0e153f0f",
+        "rev": "e8e446a361172fe838243958325845d0b845c5e5",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-25.11",
+        "ref": "nixos-26.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -320,11 +320,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778790327,
-        "narHash": "sha256-dRogTSUL+FYbOKK422UYQXNAjG5d/lcdicaNp02BguY=",
+        "lastModified": 1779914701,
+        "narHash": "sha256-82c/jhveSowLFIw1SlTlNmdS0wSavL3ZA/ysFdg2HTI=",
         "ref": "master",
-        "rev": "5bb14ac9435cb06f90f395d28d1fdd9cf21b055d",
-        "revCount": 135,
+        "rev": "b030695798b7f4ef862fcfb94f82f32d6f8822af",
+        "revCount": 136,
         "type": "git",
         "url": "ssh://git@github.com/viddrobnic/website.git"
       },
