@@ -320,11 +320,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780434376,
-        "narHash": "sha256-AbQaGMNrOuGmnSrZkzIRvK1pP7cEoO29QKwEMgBD+Tw=",
+        "lastModified": 1780438775,
+        "narHash": "sha256-0lafxIuUl6spEOXU6XGY7NlWxIy8nDOGBlyi5Fy++BU=",
         "ref": "master",
-        "rev": "7c96f2001d82044dad9f09be981cbf8998415a61",
-        "revCount": 137,
+        "rev": "7fbe71220de62f3defb2a01efa7c3b4141aa96e5",
+        "revCount": 138,
         "type": "git",
         "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git"
       },
