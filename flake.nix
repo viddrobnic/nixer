@@ -4,8 +4,8 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     website = {
-      url = "git+ssh://git@github.com/viddrobnic/website.git?ref=master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     website-ssh = {
       url = "github:viddrobnic/website-ssh";

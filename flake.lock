@@ -316,22 +316,22 @@
     "website": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-unstable"
+          "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1779914701,
-        "narHash": "sha256-82c/jhveSowLFIw1SlTlNmdS0wSavL3ZA/ysFdg2HTI=",
+        "lastModified": 1780434376,
+        "narHash": "sha256-AbQaGMNrOuGmnSrZkzIRvK1pP7cEoO29QKwEMgBD+Tw=",
         "ref": "master",
-        "rev": "b030695798b7f4ef862fcfb94f82f32d6f8822af",
-        "revCount": 136,
+        "rev": "7c96f2001d82044dad9f09be981cbf8998415a61",
+        "revCount": 137,
         "type": "git",
-        "url": "ssh://git@github.com/viddrobnic/website.git"
+        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git"
       },
       "original": {
         "ref": "master",
         "type": "git",
-        "url": "ssh://git@github.com/viddrobnic/website.git"
+        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git"
       }
     },
     "website-ssh": {
