@@ -20,7 +20,7 @@ nixos-rebuild switch --flake '.#nixer' --target-host nixer --ask-sudo-password
 
 ## Manual Things
 
-Some things still have to be done manually instead of declarative. most of the things are secrets:
+Some things still have to be done manually instead of declarative. Most of the things are secrets:
 
 - set `root` password during install
 - set `vidd` password
@@ -35,5 +35,13 @@ Some things still have to be done manually instead of declarative. most of the t
   OPENAI_API_KEY="openai api key"
   ```
   You might also need to create admin user manually, except if you are migrating old db.
+- set `lshop` secrets by adding `/var/lib/lshop/conf.env`:
+  ```text
+  OPENAI_API_KEY="key"
+  ```
 - for `forgejo` registration has to be enabled so that admin user can be created. After that, registration
   should be disabled!
+
+## Note
+
+When building on my tower, `--max-jobs 8 --cores 0` options yield fastest nix builds.
