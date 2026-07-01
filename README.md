@@ -24,21 +24,7 @@ Some things still have to be done manually instead of declarative. Most of the t
 
 - set `root` password during install
 - set `vidd` password
-- set plausible secrets by adding the following to `/var/lib/secrets/plausible`:
-  ```text
-  SECRET_KEY_BASE=<random_string>
-  ```
-- set `sparovec` secrets by adding `/var/lib/sparovec/conv.env`:
-  ```text
-  DB_FILE_NAME="file:///var/lib/sparovec/prod.db"
-  SESSION_SECRET="<random_string>"
-  OPENAI_API_KEY="openai api key"
-  ```
-  You might also need to create admin user manually, except if you are migrating old db.
-- set `lshop` secrets by adding `/var/lib/lshop/conf.env`:
-  ```text
-  OPENAI_API_KEY="key"
-  ```
+- for `sparovec` and `lshop` admin user might have to be created manually
 - for `forgejo` registration has to be enabled so that admin user can be created. After that, registration
   should be disabled!
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   stateDir = "/var/lib/lshop";
   port = 8004;
@@ -13,6 +13,15 @@ in
     packages = [ pkgs.sqlite ];
   };
 
+  sops.secrets."lshop.env" = {
+    sopsFile = ../secrets/lshop.env;
+    format = "dotenv";
+
+    owner = "lshop";
+    group = "lshop";
+    mode = "0400";
+  };
+
   systemd.services.lshop = {
     description = "LShop backend service";
     wantedBy = [ "multi-user.target" ];
@@ -22,7 +31,7 @@ in
       User = "lshop";
       Group = "lshop";
       WorkingDirectory = stateDir;
-      EnvironmentFile = "${stateDir}/conf.env";
+      EnvironmentFile = config.sops.secrets."lshop.env".path;
 
       ExecStart = "${pkgs.lshop.backend}/bin/lshop-backend";
 

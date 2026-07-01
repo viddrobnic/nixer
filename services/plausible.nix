@@ -1,5 +1,11 @@
-{ ... }:
+{ config, ... }:
 {
+
+  sops.secrets."plausible.env" = {
+    sopsFile = ../secrets/plausible.env;
+    format = "dotenv";
+  };
+
   virtualisation.oci-containers.containers = {
     plausible-db = {
       image = "postgres:16-alpine";
@@ -56,7 +62,7 @@
         CLICKHOUSE_DATABASE_URL = "http://plausible-events-db:8123/plausible_events_db";
       };
       environmentFiles = [
-        "/var/lib/secrets/plausible"
+        config.sops.secrets."plausible.env".path
       ];
 
       ports = [ "8001:8001" ];

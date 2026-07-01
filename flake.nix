@@ -2,6 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     website = {
       url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
@@ -28,6 +32,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      sops-nix,
       website,
       website-ssh,
       rayman,
@@ -69,6 +74,8 @@
           website-ssh.nixosModules.default
 
           ./configuration.nix
+
+          sops-nix.nixosModules.sops
         ];
       };
 

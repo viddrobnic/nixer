@@ -1,17 +1,25 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   stateDir = "/var/lib/sparovec";
   port = 8002;
 in
 {
   users.groups.sparovec = { };
-
   users.users.sparovec = {
     isNormalUser = true;
     home = stateDir;
     group = "sparovec";
 
     packages = [ pkgs.sqlite ];
+  };
+
+  sops.secrets."sparovec.env" = {
+    sopsFile = ../secrets/sparovec.env;
+    format = "dotenv";
+
+    owner = "sparovec";
+    group = "sparovec";
+    mode = "0400";
   };
 
   systemd.services.sparovec-migrate = {
@@ -24,7 +32,7 @@ in
       User = "sparovec";
       Group = "sparovec";
       WorkingDirectory = stateDir;
-      EnvironmentFile = "${stateDir}/conf.env";
+      EnvironmentFile = config.sops.secrets."sparovec.env".path;
 
       ExecStart = "${pkgs.sparovec}/bin/sparovec-migrate";
 
@@ -50,7 +58,7 @@ in
       User = "sparovec";
       Group = "sparovec";
       WorkingDirectory = stateDir;
-      EnvironmentFile = "${stateDir}/conf.env";
+      EnvironmentFile = config.sops.secrets."sparovec.env".path;
 
       ExecStart = "${pkgs.sparovec}/bin/sparovec";
 
