@@ -9,9 +9,24 @@ let
   port = 8003;
 in
 {
+  sops.secrets."forgejo-restic.env" = {
+    sopsFile = ../secrets/forgejo-restic.env;
+    format = "dotenv";
+  };
+
   services.forgejo = {
     enable = true;
     package = pkgs.forgejo;
+
+    dump = {
+      enable = true;
+
+      # We don't want compression, since restic does dedup and compression
+      type = "tar";
+
+      # A bit of buffer doesn't hurt.
+      age = "2d";
+    };
 
     settings = {
       server = {
@@ -25,6 +40,31 @@ in
 
       session.COOKIE_SECURE = true;
       service.DISABLE_REGISTRATION = true;
+    };
+  };
+
+  systemd.timers.forgejo-dump.enable = false;
+
+  services.restic.backups.forgejo = {
+    environmentFile = config.sops.secrets."forgejo-restic.env".path;
+    initialize = true;
+
+    paths = [ config.services.forgejo.dump.backupDir ];
+    backupPrepareCommand = ''
+      ${pkgs.systemd}/bin/systemctl start forgejo-dump.service
+    '';
+
+    pruneOpts = [
+      "--keep-daily 14"
+      "--keep-weekly 8"
+      "--keep-monthly 12"
+      "--keep-yearly 3"
+    ];
+
+    timerConfig = {
+      OnCalendar = "01:00";
+      RandomizedDelaySec = "30m";
+      Persistent = true;
     };
   };
 
