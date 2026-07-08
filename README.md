@@ -31,3 +31,7 @@ Some things still have to be done manually instead of declarative. Most of the t
 ## Note
 
 When building on my tower, `--max-jobs 8 --cores 0` options yield fastest nix builds.
+
+## License
+
+This software is licensed under [GNU GPL v3 license](LICENSE).
