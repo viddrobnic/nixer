@@ -7,6 +7,10 @@
 let
   domain = "git.viddrobnic.com";
   port = 8003;
+  forgejo = config.services.forgejo;
+  forgejoFooter = pkgs.writeText "extra_links_footer.tmpl" ''
+    <a class="item" href="https://viddrobnic.com/" rel="me">viddrobnic.com</a>
+  '';
 in
 {
   sops.secrets."forgejo-restic.env" = {
@@ -14,6 +18,7 @@ in
     format = "dotenv";
   };
 
+  # Main service setup
   services.forgejo = {
     enable = true;
     package = pkgs.forgejo;
@@ -29,6 +34,11 @@ in
     };
 
     settings = {
+      DEFAULT = {
+        APP_NAME = "Vid's Forge";
+        APP_SLOGAN = "";
+      };
+
       server = {
         DOMAIN = domain;
         HTTP_ADDR = "127.0.0.1";
@@ -40,9 +50,29 @@ in
 
       session.COOKIE_SECURE = true;
       service.DISABLE_REGISTRATION = true;
+
+      "ui.meta" = {
+        AUTHOR = "Vid Drobnič";
+        DESCRIPTION = "Source code, releases, and issue tracking for Vid Drobnič's personal software projects.";
+      };
+
+      other = {
+        SHOW_FOOTER_VERSION = false;
+        SHOW_FOOTER_TEMPLATE_LOAD_TIME = false;
+        SHOW_FOOTER_POWERED_BY = true;
+      };
     };
   };
 
+  systemd.tmpfiles.rules = [
+    "d '${forgejo.customDir}/templates' 0750 ${forgejo.user} ${forgejo.group} - -"
+    "d '${forgejo.customDir}/templates/custom' 0750 ${forgejo.user} ${forgejo.group} - -"
+    "L+ '${forgejo.customDir}/templates/custom/extra_links_footer.tmpl' - - - - ${forgejoFooter}"
+  ];
+
+  systemd.services.forgejo.restartTriggers = [ forgejoFooter ];
+
+  # Backup setup
   systemd.timers.forgejo-dump.enable = false;
 
   services.restic.backups.forgejo = {
@@ -68,6 +98,7 @@ in
     };
   };
 
+  # Caddy setup
   services.caddy.virtualHosts.${domain}.extraConfig = ''
     encode zstd gzip
     reverse_proxy * :${builtins.toString port}

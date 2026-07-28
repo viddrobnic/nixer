@@ -7,26 +7,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    website = {
-      url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    website-ssh = {
-      url = "github:viddrobnic/website-ssh";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    rayman = {
-      url = "github:viddrobnic/rayman";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    sparovec = {
-      url = "git+ssh://git@github.com/viddrobnic/sparovec-remix.git?ref=master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    lshop = {
-      url = "github:viddrobnic/lshop";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    website.url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
+    website-ssh.url = "github:viddrobnic/website-ssh";
+    rayman.url = "github:viddrobnic/rayman";
+    sparovec.url = "git+ssh://git@github.com/viddrobnic/sparovec-remix.git?ref=master";
+    lshop.url = "github:viddrobnic/lshop";
   };
   outputs =
     {
