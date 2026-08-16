@@ -340,12 +340,12 @@
         "rev": "a30d05b5f06271282af4308e171fc7c52fc08bfc",
         "revCount": 77,
         "type": "git",
-        "url": "ssh://git@github.com/viddrobnic/sparovec-remix.git"
+        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git"
       },
       "original": {
         "ref": "master",
         "type": "git",
-        "url": "ssh://git@github.com/viddrobnic/sparovec-remix.git"
+        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git"
       }
     },
     "systems": {

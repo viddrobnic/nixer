@@ -10,7 +10,7 @@
     website.url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
     website-ssh.url = "github:viddrobnic/website-ssh";
     rayman.url = "github:viddrobnic/rayman";
-    sparovec.url = "git+ssh://git@github.com/viddrobnic/sparovec-remix.git?ref=master";
+    sparovec.url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git?ref=master";
     lshop.url = "github:viddrobnic/lshop";
   };
   outputs =
