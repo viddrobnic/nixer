@@ -2,7 +2,7 @@ keys:
   - &admin_gazela age1jwv9ucq0hfh20yrl8mxq060gvxaltu5e7qc52aqq3qggvjzs5pcqlay6xj
   - &server_nixer age1e2ghnxcskhpgjzy6c83cxe2x85vptskuun3ek63x4u20m004450qpm03m0
 creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/[^/]+$
     key_groups:
       - age:
           - *admin_gazela

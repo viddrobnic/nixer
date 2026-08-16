@@ -1,4 +1,5 @@
 {
+  config,
   system,
   pkgs,
   pkgsUnstable,
@@ -44,6 +45,10 @@
     443
   ];
 
+  networking.hosts = {
+    "127.0.0.1" = [ "git.viddrobnic.com" ];
+  };
+
   # Time zone, internationalization
   time.timeZone = "Europe/Ljubljana";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -80,6 +85,16 @@
   };
 
   security.sudo.wheelNeedsPassword = true;
+
+  sops.secrets."vidd-ssh-key" = {
+    sopsFile = ./secrets/ssh_key;
+    format = "binary";
+
+    path = "${config.users.users.vidd.home}/.ssh/id_ed25519";
+    mode = "0400";
+    owner = config.users.users.vidd.name;
+    group = config.users.users.vidd.group;
+  };
 
   # Sops
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
