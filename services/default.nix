@@ -8,6 +8,7 @@
     ./forgejo.nix
     ./lshop.nix
     ./betterapi.nix
+    ./radicale.nix
   ];
 
   services.caddy.enable = true;
