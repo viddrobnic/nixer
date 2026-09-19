@@ -7,22 +7,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    website.url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
-    website-ssh.url = "github:viddrobnic/website-ssh";
-    rayman.url = "github:viddrobnic/rayman";
-    sparovec.url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git?ref=master";
-    lshop.url = "github:viddrobnic/lshop";
+    website = {
+      url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    website-ssh = {
+      url = "github:viddrobnic/website-ssh";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    rayman = {
+      url = "github:viddrobnic/rayman";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    sparovec = {
+      url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git?ref=master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    lshop = {
+      url = "github:viddrobnic/lshop";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
   outputs =
-    {
+    inputs@{
       nixpkgs,
       nixpkgs-unstable,
       sops-nix,
-      website,
-      website-ssh,
-      rayman,
-      sparovec,
-      lshop,
       ...
     }:
     let
@@ -46,17 +56,15 @@
               nixpkgs.overlays = [
                 (final: prev: {
 
-                  website = website.packages.${system}.default;
-                  rayman = rayman.packages.${system}.default;
-                  sparovec = sparovec.packages.${system}.default;
-                  lshop.backend = lshop.packages.${system}.backend;
-                  lshop.frontend = lshop.packages.${system}.frontend;
+                  website = inputs.website.packages.${system}.default;
+                  rayman = inputs.rayman.packages.${system}.default;
+                  sparovec = inputs.sparovec.packages.${system}.default;
+                  lshop = inputs.lshop.packages.${system};
                 })
               ];
             }
           )
-
-          website-ssh.nixosModules.default
+          inputs.website-ssh.nixosModules.default
 
           ./configuration.nix
 
