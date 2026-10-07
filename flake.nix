@@ -8,7 +8,7 @@
     };
 
     website = {
-      url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git?ref=master";
+      url = "git+ssh://forgejo@git.drobnic.dev:2222/viddrobnic/website.git?ref=master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     website-ssh = {
@@ -20,11 +20,15 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     sparovec = {
-      url = "git+ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git?ref=master";
+      url = "git+ssh://forgejo@git.drobnic.dev:2222/viddrobnic/sparovec-remix.git?ref=master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     lshop = {
       url = "github:viddrobnic/lshop";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    reed = {
+      url = "git+ssh://forgejo@git.drobnic.dev:2222/viddrobnic/reed.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
@@ -55,11 +59,11 @@
             {
               nixpkgs.overlays = [
                 (final: prev: {
-
                   website = inputs.website.packages.${system}.default;
                   rayman = inputs.rayman.packages.${system}.default;
                   sparovec = inputs.sparovec.packages.${system}.default;
                   lshop = inputs.lshop.packages.${system};
+                  reed = inputs.reed.packages.${system}.default;
                 })
               ];
             }

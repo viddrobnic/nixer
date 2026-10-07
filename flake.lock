@@ -17,6 +17,21 @@
     },
     "crane_2": {
       "locked": {
+        "lastModified": 1790899423,
+        "narHash": "sha256-THGtz65UGJU+sonZidRboyCMk+9DclpMF7pwL4uDV4M=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "47b6b27ed9a3a9181415e4367d0c30ab2a0e0250",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
+    "crane_3": {
+      "locked": {
         "lastModified": 1789760033,
         "narHash": "sha256-jtT4yxZpR8seYnlCMMWSSPlFN92zO6ICuZ8pJrmi86k=",
         "owner": "ipetkov",
@@ -71,11 +86,11 @@
         "nixpkgs-lib": "nixpkgs-lib_3"
       },
       "locked": {
-        "lastModified": 1788450739,
-        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
+        "lastModified": 1790898470,
+        "narHash": "sha256-zTwuwezD0w3hpga6a6P8emidzAZFyWqlNeRBlpWOOl8=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
+        "rev": "024633cd702b10285db5cb19b40ad48d2399ba60",
         "type": "github"
       },
       "original": {
@@ -120,6 +135,24 @@
         "type": "github"
       }
     },
+    "flake-parts_6": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_6"
+      },
+      "locked": {
+        "lastModified": 1788450739,
+        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "lshop": {
       "inputs": {
         "crane": "crane",
@@ -144,11 +177,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1791353474,
-        "narHash": "sha256-v72qr4LsSz61tQki/41nHKZKPY6NSeZavtGlAInOCng=",
+        "lastModified": 1791426274,
+        "narHash": "sha256-MWhktfFtFE8Jl7bf9Pkp7TR5MSdYCjCswSo0Gkb4ywc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2efa67fd26b6df417c33e4603185c701f260dd83",
+        "rev": "7c8764b7c7b09b34f632464276218ef9090eaa11",
         "type": "github"
       },
       "original": {
@@ -190,11 +223,11 @@
     },
     "nixpkgs-lib_3": {
       "locked": {
-        "lastModified": 1788057806,
-        "narHash": "sha256-DTQSMxzDWmT0zhguthvegnVkn7CFqGCv4IHCzk5ZUpM=",
+        "lastModified": 1790477367,
+        "narHash": "sha256-oujbxmVKDhci2E4EM3KyAbRUgp5/IsCoiA/LfEF7OOk=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "596e2e3940e09b2abbeb03f75fa1828c57fcd72c",
+        "rev": "f7cd230690d9fc982d06129f9189b101fddcfa3b",
         "type": "github"
       },
       "original": {
@@ -233,13 +266,28 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib_6": {
+      "locked": {
+        "lastModified": 1788057806,
+        "narHash": "sha256-DTQSMxzDWmT0zhguthvegnVkn7CFqGCv4IHCzk5ZUpM=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "596e2e3940e09b2abbeb03f75fa1828c57fcd72c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1791260994,
-        "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
+        "lastModified": 1791456040,
+        "narHash": "sha256-H83yz/do+hjOO0uujHyH8RgtIQP2v7Mw+cLwcZK/xKc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
+        "rev": "e7439b6b14ad3cc35d05608ebca9bce01a25f5f8",
         "type": "github"
       },
       "original": {
@@ -270,12 +318,36 @@
         "type": "github"
       }
     },
+    "reed": {
+      "inputs": {
+        "crane": "crane_2",
+        "flake-parts": "flake-parts_3",
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791494262,
+        "narHash": "sha256-gw4Hk1P7FFAWn+f/f8Mm12/RNuHaw66M9i5lMzZO7VM=",
+        "ref": "main",
+        "rev": "c1cbf57e3d2ba762bad03cddd73f0ec82260c4d4",
+        "revCount": 11,
+        "type": "git",
+        "url": "ssh://forgejo@git.drobnic.dev:2222/viddrobnic/reed.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "ssh://forgejo@git.drobnic.dev:2222/viddrobnic/reed.git"
+      }
+    },
     "root": {
       "inputs": {
         "lshop": "lshop",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "rayman": "rayman",
+        "reed": "reed",
         "sops-nix": "sops-nix",
         "sparovec": "sparovec",
         "website": "website",
@@ -304,7 +376,7 @@
     },
     "sparovec": {
       "inputs": {
-        "flake-parts": "flake-parts_3",
+        "flake-parts": "flake-parts_4",
         "nixpkgs": [
           "nixpkgs-unstable"
         ]
@@ -316,40 +388,40 @@
         "rev": "2ba9ceaefa89949261533eae6d9880aed7d5671c",
         "revCount": 78,
         "type": "git",
-        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git"
+        "url": "ssh://forgejo@git.drobnic.dev:2222/viddrobnic/sparovec-remix.git"
       },
       "original": {
         "ref": "master",
         "type": "git",
-        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/sparovec-remix.git"
+        "url": "ssh://forgejo@git.drobnic.dev:2222/viddrobnic/sparovec-remix.git"
       }
     },
     "website": {
       "inputs": {
-        "flake-parts": "flake-parts_4",
+        "flake-parts": "flake-parts_5",
         "nixpkgs": [
           "nixpkgs-unstable"
         ]
       },
       "locked": {
-        "lastModified": 1791393111,
-        "narHash": "sha256-CSl2vdt3umquB3VlsuTZEG8/F1bTTEVYL0aQ1W/7llI=",
+        "lastModified": 1791490893,
+        "narHash": "sha256-muuEnz84gCm8xbPCpuweicqpZ289c9cjBQC3PkQQzpE=",
         "ref": "master",
-        "rev": "5a83e630b56aa2a5e5a84a31cda0e9ece381b49a",
-        "revCount": 146,
+        "rev": "f3b3d3abe089c03649441965f27f755a080dd998",
+        "revCount": 147,
         "type": "git",
-        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git"
+        "url": "ssh://forgejo@git.drobnic.dev:2222/viddrobnic/website.git"
       },
       "original": {
         "ref": "master",
         "type": "git",
-        "url": "ssh://forgejo@git.viddrobnic.com:2222/viddrobnic/website.git"
+        "url": "ssh://forgejo@git.drobnic.dev:2222/viddrobnic/website.git"
       }
     },
     "website-ssh": {
       "inputs": {
-        "crane": "crane_2",
-        "flake-parts": "flake-parts_5",
+        "crane": "crane_3",
+        "flake-parts": "flake-parts_6",
         "nixpkgs": [
           "nixpkgs-unstable"
         ]

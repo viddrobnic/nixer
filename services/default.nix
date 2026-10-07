@@ -10,6 +10,7 @@
     ./lshop.nix
     ./betterapi.nix
     ./radicale.nix
+    ./reed.nix
   ];
 
   services.website-ssh = {
