@@ -5,11 +5,11 @@
   ...
 }:
 let
-  domain = "git.viddrobnic.com";
+  domain = "git.drobnic.dev";
   port = 8003;
   forgejo = config.services.forgejo;
   forgejoFooter = pkgs.writeText "extra_links_footer.tmpl" ''
-    <a class="item" href="https://viddrobnic.com/" rel="me">viddrobnic.com</a>
+    <a class="item" href="https://drobnic.dev/" rel="me">drobnic.dev</a>
   '';
 in
 {

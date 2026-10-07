@@ -25,7 +25,7 @@
   };
 
   # Caddy setup, port is gotten from radicale docs where default port is written
-  services.caddy.virtualHosts."radicale.viddrobnic.com".extraConfig = ''
+  services.caddy.virtualHosts."radicale.drobnic.dev".extraConfig = ''
     encode zstd gzip
     reverse_proxy * :5232
   '';

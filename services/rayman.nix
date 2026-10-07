@@ -2,7 +2,7 @@
 {
   # We remove some caching headers, because nix removes created/modified dates, so we can't rely on those
   # for caching.
-  services.caddy.virtualHosts."rayman.viddrobnic.com".extraConfig = ''
+  services.caddy.virtualHosts."rayman.drobnic.dev".extraConfig = ''
     encode zstd gzip
 
     header Cache-Control "public, no-store"

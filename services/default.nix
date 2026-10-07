@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./caddy.nix
     ./website.nix
     ./plausible.nix
     ./rayman.nix
@@ -10,8 +11,6 @@
     ./betterapi.nix
     ./radicale.nix
   ];
-
-  services.caddy.enable = true;
 
   services.website-ssh = {
     enable = true;

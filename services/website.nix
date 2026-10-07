@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
-  services.caddy.virtualHosts."viddrobnic.com" = {
-    serverAliases = [ "www.viddrobnic.com" ];
+  services.caddy.virtualHosts."drobnic.dev" = {
+    serverAliases = [ "www.drobnic.dev" ];
 
     # We remove some caching headers, because nix removes created/modified dates, so we can't rely on those
     # for caching.

@@ -74,7 +74,7 @@ in
     };
   };
 
-  services.caddy.virtualHosts."sparovec.viddrobnic.com".extraConfig = ''
+  services.caddy.virtualHosts."sparovec.drobnic.dev".extraConfig = ''
     encode zstd gzip
     reverse_proxy * :${builtins.toString port}
   '';

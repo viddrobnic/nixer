@@ -48,7 +48,7 @@ in
     };
   };
 
-  services.caddy.virtualHosts."shop.viddrobnic.com".extraConfig = ''
+  services.caddy.virtualHosts."shop.drobnic.dev".extraConfig = ''
     encode zstd gzip
     root * ${pkgs.lshop.frontend}
 

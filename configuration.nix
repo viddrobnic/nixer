@@ -46,7 +46,7 @@
   ];
 
   networking.hosts = {
-    "127.0.0.1" = [ "git.viddrobnic.com" ];
+    "127.0.0.1" = [ "git.drobnic.dev" ];
   };
 
   # Time zone, internationalization

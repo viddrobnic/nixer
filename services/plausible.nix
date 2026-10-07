@@ -55,7 +55,7 @@
 
       environment = {
         TMPDIR = "/var/lib/plausible/tmp";
-        BASE_URL = "https://a.viddrobnic.com";
+        BASE_URL = "https://a.drobnic.dev";
         HTTP_PORT = "8001";
 
         DATABASE_URL = "postgres://postgres:postgres@plausible-db:5432/plausible_db";
@@ -126,7 +126,7 @@
     '';
   };
 
-  services.caddy.virtualHosts."a.viddrobnic.com" = {
+  services.caddy.virtualHosts."a.drobnic.dev" = {
     extraConfig = ''
       encode zstd gzip
       reverse_proxy * :8001
