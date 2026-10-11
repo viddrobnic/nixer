@@ -327,11 +327,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791494262,
-        "narHash": "sha256-gw4Hk1P7FFAWn+f/f8Mm12/RNuHaw66M9i5lMzZO7VM=",
+        "lastModified": 1791733937,
+        "narHash": "sha256-AuxT/eQNxgTs9RNxiESHqFo95rWVeLiQwlQlxwJHLig=",
         "ref": "main",
-        "rev": "c1cbf57e3d2ba762bad03cddd73f0ec82260c4d4",
-        "revCount": 11,
+        "rev": "76188bdf23fdedaedc3320d16fa3aa116124408b",
+        "revCount": 14,
         "type": "git",
         "url": "ssh://forgejo@git.drobnic.dev:2222/viddrobnic/reed.git"
       },
