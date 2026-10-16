@@ -8,7 +8,7 @@
 
   virtualisation.oci-containers.containers = {
     plausible-db = {
-      image = "postgres:16-alpine";
+      image = "docker.io/library/postgres:16-alpine";
       autoStart = true;
 
       volumes = [
@@ -21,7 +21,7 @@
     };
 
     plausible-events-db = {
-      image = "clickhouse/clickhouse-server:24.12-alpine";
+      image = "docker.io/clickhouse/clickhouse-server:24.12-alpine";
       autoStart = true;
 
       volumes = [
@@ -36,7 +36,7 @@
     };
 
     plausible = {
-      image = "ghcr.io/plausible/community-edition:v3.2.0";
+      image = "ghcr.io/plausible/community-edition:v3.2.1";
       autoStart = true;
       cmd = [
         "sh"
@@ -129,7 +129,7 @@
   services.caddy.virtualHosts."a.drobnic.dev" = {
     extraConfig = ''
       encode zstd gzip
-      reverse_proxy * :8001
+      reverse_proxy * 127.0.0.1:8001
     '';
   };
 }
