@@ -9,6 +9,7 @@ let
     "https://dbushell.com/rss.xml"
     "https://without.boats/index.xml"
     "https://mitchellh.com/feed.xml"
+    "https://fzakaria.com/feed.xml"
   ];
   feedsFile = pkgs.writeText "feeds.txt" (lib.concatLines feeds);
 in
