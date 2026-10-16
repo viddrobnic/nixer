@@ -122,6 +122,12 @@
     "vidd"
   ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   # NOTE: Don't change
   system.stateVersion = "25.11";
 }
