@@ -17,8 +17,11 @@
   # Boot
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    configurationLimit = 5;
+  };
 
   # Network
   networking.hostName = "nixer";
